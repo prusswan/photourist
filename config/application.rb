@@ -26,5 +26,9 @@ module Photourist
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    Mongoid.load!('./config/mongoid.yml')
+
+    config.generators {|g| g.orm :active_record}
   end
 end
