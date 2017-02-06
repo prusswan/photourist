@@ -30,5 +30,12 @@ module Photourist
     Mongoid.load!('./config/mongoid.yml')
 
     config.generators {|g| g.orm :active_record}
+
+    config.middleware.insert_before 0, "Rack::Cors" do
+      allow do
+        origins 'localhost:4000'
+        resource '/api/*', :headers => :any, :methods => :any
+      end
+    end
   end
 end
