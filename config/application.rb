@@ -33,7 +33,7 @@ module Photourist
 
     config.middleware.insert_before 0, "Rack::Cors" do
       allow do
-        origins 'localhost:4000'
+        origins 'localhost:4000', 'photourist-spa.herokuapp.com'
         resource '/api/*', :headers => :any, :methods => :any
       end
     end
